@@ -42,7 +42,7 @@
     <main>
 	 <header><h3>A JavaScript Project by Phuc Nguyen</h3></header>
 	 <h3 id="my-greeting"> Good Morning</h3>
-	    <p>Explain what your page does and how it works here!</p>
+		<p>On this website, you'll find a dynamic display featuring the precise current time, complemented by a warm greeting tailored to the moment, a unique color palette chosen to resonate with the particular timeframe, and a thoughtfully curated image that seamlessly captures the essence of the corresponding period of the day.</p>
 	  <img src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible" id="my-pic">
      <footer>
       <p><small>&copy; 2022 by 
@@ -72,28 +72,41 @@
 		let myPic = "";
 
 		//PUT IN PLACE FOR TESTING - REMOVE LINE BELOW!!
+		
 
-		if(myHour >= 12){//afternoon
-			myGreeting = "Good Afternoon";
-			myColor = "Blue";
-			myPic = "afternoon.jpg";
-		}else{//not afternoon
-			myGreeting = "Not Afternoon!";
-			myColor = "orange";
+		if(myHour > 5 && myHour < 12){//morning
+			myGreeting = "Good Morning!";
+			myColor = "violet";
 			myPic = "morning.jpg";
+			document.body.style.backgroundColor = "yellow";
+		}else if(myHour > 12 && myHour < 18){//afternoon
+			myGreeting = "Good Afternoon!";
+			myColor = "red";
+			myPic = "afternoon.jpg";
+			document.body.style.backgroundColor = "green";
+		}else if(myHour > 18 && myHour < 23){
+			myGreeting = "Good Evening!";
+			myColor = "Aqua";
+			myPic = "evening.jpg";
+			document.body.style.backgroundColor = "orange";
 
+		}else{//not afternoon
+			myGreeting = "Good Night!";
+			myColor = "purple";
+			myPic = "night.jpg";
+			document.body.style.backgroundColor = "yellow";
 		}
 
 		//pre-pend the image 
 		myPic = "images/" + myPic;
 		//custorm message
-		document.getElementByld("my-greeting").innerHTML = mySentence;
+		document.getElementById("my-greeting").innerHTML = myGreeting;
 
 		//custom color 
 		document.querySelector("html").style.backgroundColor = myColor;
 
 		//custom pic
-		document.getElementByld("my-pic").src = myPic;
+		document.getElementById("my-pic").src = myPic;
 
 
 
